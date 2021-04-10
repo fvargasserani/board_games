@@ -64,6 +64,6 @@ class PiecesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def piece_params
-      params.require(:piece).permit(:name, :quantity)
+      params.require(:piece).permit(:name, :quantity, :image)
     end
 end
