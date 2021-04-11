@@ -17,7 +17,7 @@
   <tbody>
     <% @board_games.each do |board_game| %>
       <tr>
-        <td><%= image_tag board_game.image.variant(resize: "100x100").processed %></td>  
+        <td><%= image_tag board_game.image.variant(resize: "100x100", grayscale: "Rec709Luminance").processed %></td>  
         <td><%= rails_blob_path(board_game.image, disposition: "attachment") %></td>
         <td><%= board_game.name %></td>
         <td><%= board_game.rules %></td>

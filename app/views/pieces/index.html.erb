@@ -16,7 +16,7 @@
   <tbody>
     <% @pieces.each do |piece| %>
       <tr>
-        <td><%= image_tag piece.images.last.variant(resize: "100x100").processed %></td> 
+        <td><%= image_tag piece.images.last.variant(resize: "100x100", grayscale: "Rec709Luminance").processed %></td> 
         <td><%= rails_blob_path(piece.images, disposition: "attachment") %></td>
         <td><%= piece.name %></td>
         <td><%= piece.quantity %></td>
