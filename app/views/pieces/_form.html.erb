@@ -11,9 +11,8 @@
     </div>
   <% end %>
 
-  <p>Choose Board Game</p>
   <div class="field">
-  <%= form.label :name %>
+  <%= form.label :board_game %>
     <select name="piece[board_game_id]">
     <% @board_games.each do |board_game| %>
       <option value="<%= board_game.id %>"><%= board_game.name %></option> 
@@ -33,7 +32,7 @@
 
   <div class="field">
     <%= form.label :image %>
-    <%= form.file_field :image %>
+    <%= form.file_field :image, multiple: true %>
   </div>
 
   <div class="actions">

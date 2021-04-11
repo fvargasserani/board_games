@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Images</th>
       <th>Name</th>
       <th>Quantity</th>
       <th colspan="3"></th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @pieces.each do |piece| %>
       <tr>
+        <td><%= image_tag piece.images.last.variant(resize: "100x100").processed %></td> 
         <td><%= piece.name %></td>
         <td><%= piece.quantity %></td>
         <td><%= link_to 'Show', piece %></td>
