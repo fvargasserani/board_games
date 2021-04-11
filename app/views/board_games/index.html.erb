@@ -5,10 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>Box Image</th>
-      <th>Download Image Link</th>
       <th>Name</th>
-      <th>Rules Description</th>
+      <th>Box Image</th>
+      <th>Download Box Image Link</th>
+      <th>Pieces Images</th>
+      <th>Download Pieces Image Link</th>
       <th>Download Rules Link</th>
       <th colspan="3"></th>
     </tr>
@@ -17,10 +18,11 @@
   <tbody>
     <% @board_games.each do |board_game| %>
       <tr>
-        <td><%= image_tag board_game.image.variant(resize: "100x100", grayscale: "Rec709Luminance").processed %></td>  
-        <td><%= rails_blob_path(board_game.image, disposition: "attachment") %></td>
         <td><%= board_game.name %></td>
-        <td><%= board_game.rules %></td>
+        <td><%= image_tag board_game.box.variant(resize: "100x100", grayscale: "Rec709Luminance").processed %></td>  
+        <td><%= rails_blob_path(board_game.box, disposition: "attachment") %></td>
+        <td><%= image_tag board_game.pieces.last.variant(resize: "100x100", grayscale: "Rec709Luminance").processed %></td> 
+        <td><%= rails_blob_path(board_game.pieces, disposition: "attachment") %></td>
         <td><%= rails_blob_path(board_game.rules_pdf, disposition: "attachment") %></td>
         <td><%= link_to 'Show', board_game %></td>
         <td><%= link_to 'Edit', edit_board_game_path(board_game) %></td>
