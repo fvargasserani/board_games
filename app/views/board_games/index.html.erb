@@ -5,8 +5,11 @@
 <table>
   <thead>
     <tr>
+      <th>Box Image</th>
+      <th>Download Image Link</th>
       <th>Name</th>
-      <th>Rules</th>
+      <th>Rules Description</th>
+      <th>Download Rules Link</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +17,11 @@
   <tbody>
     <% @board_games.each do |board_game| %>
       <tr>
+        <td><%= image_tag board_game.image.variant(resize: "100x100").processed %></td>  
+        <td><%= rails_blob_path(board_game.image, disposition: "attachment") %></td>
         <td><%= board_game.name %></td>
         <td><%= board_game.rules %></td>
+        <td><%= rails_blob_path(board_game.rules_pdf, disposition: "attachment") %></td>
         <td><%= link_to 'Show', board_game %></td>
         <td><%= link_to 'Edit', edit_board_game_path(board_game) %></td>
         <td><%= link_to 'Destroy', board_game, method: :delete, data: { confirm: 'Are you sure?' } %></td>

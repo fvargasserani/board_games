@@ -3,7 +3,7 @@ class PiecesController < ApplicationController
 
   # GET /pieces or /pieces.json
   def index
-    @pieces = Piece.all
+    @pieces = Piece.with_attached_images.all
   end
 
   # GET /pieces/1 or /pieces/1.json
@@ -13,6 +13,7 @@ class PiecesController < ApplicationController
   # GET /pieces/new
   def new
     @piece = Piece.new
+    @board_games = BoardGame.all
   end
 
   # GET /pieces/1/edit
@@ -22,7 +23,7 @@ class PiecesController < ApplicationController
   # POST /pieces or /pieces.json
   def create
     @piece = Piece.new(piece_params)
-
+    @board_games = BoardGame.all
     respond_to do |format|
       if @piece.save
         format.html { redirect_to @piece, notice: "Piece was successfully created." }
@@ -64,6 +65,6 @@ class PiecesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def piece_params
-      params.require(:piece).permit(:name, :quantity, :image)
+      params.require(:piece).permit(:name, :quantity, :board_game_id, images: [])
     end
 end
