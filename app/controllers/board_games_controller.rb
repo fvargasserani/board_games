@@ -3,7 +3,7 @@ class BoardGamesController < ApplicationController
 
   # GET /board_games or /board_games.json
   def index
-    @board_games = BoardGame.with_attached_image.all
+    @board_games = BoardGame.all
   end
 
   # GET /board_games/1 or /board_games/1.json
