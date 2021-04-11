@@ -20,10 +20,10 @@
       <tr>
         <td><%= board_game.name %></td>
         <td><%= image_tag board_game.box.variant(resize: "100x100", grayscale: "Rec709Luminance").processed %></td>  
-        <td><%= rails_blob_path(board_game.box, disposition: "attachment") %></td>
+        <td><%= link_to 'Box Image', rails_blob_path(board_game.box, disposition: "attachment") %></td>
         <td><%= image_tag board_game.pieces.last.variant(resize: "100x100", grayscale: "Rec709Luminance").processed %></td> 
-        <td><%= rails_blob_path(board_game.pieces, disposition: "attachment") %></td>
-        <td><%= rails_blob_path(board_game.rules_pdf, disposition: "attachment") %></td>
+        <td><%= link_to 'Pieces Images', rails_blob_path(board_game.pieces.last, disposition: "attachment") %></td>
+        <td><%= link_to 'Rules PDF', rails_blob_path(board_game.rules_pdf, disposition: "attachment") %></td>
         <td><%= link_to 'Show', board_game %></td>
         <td><%= link_to 'Edit', edit_board_game_path(board_game) %></td>
         <td><%= link_to 'Destroy', board_game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
