@@ -8,10 +8,10 @@ local:
 
 amazon:
   service: S3
-  access_key_id: AKIATMHLDAYVQMLOXEXP
-  secret_access_key: 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
-  bucket: boardgamesfran
-  region: Ohio
+  access_key_id: ""
+  secret_access_key: ""
+  bucket: ""
+  region: ""
 
 mirror:
 service: Mirror
